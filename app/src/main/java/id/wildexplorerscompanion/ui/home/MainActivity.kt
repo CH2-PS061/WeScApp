@@ -1,7 +1,8 @@
-package id.wildexplorerscompanion
+package id.wildexplorerscompanion.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import id.wildexplorerscompanion.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

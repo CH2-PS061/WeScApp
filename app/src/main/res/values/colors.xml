@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+<!--    Untuk Backgroud Color-->
+    <color name="hintgreen">#F6FFF7</color>
+<!--    Primary Color Unutk View-->
+    <color name="applegreen">#379C41</color>
 </resources>

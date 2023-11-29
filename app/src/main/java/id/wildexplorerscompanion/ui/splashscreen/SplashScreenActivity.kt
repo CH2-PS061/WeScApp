@@ -7,6 +7,7 @@ import android.os.Handler
 import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.databinding.ActivitySplashScreenBinding
 import id.wildexplorerscompanion.ui.home.MainActivity
+import id.wildexplorerscompanion.ui.login.LoginActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashScreenBinding
@@ -16,7 +17,7 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         Handler().postDelayed({
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this,LoginActivity::class.java))
 
             finish()
         }, SPLASH_DELAY)

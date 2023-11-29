@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">WildExplorer\'s Companion</string>
     <string name="wes_c">Wes\'c</string>
+    <string name="selamat_datang_kembali">Selamat Datang Kembali!</string>
+    <string name="silakan_login_dengan_akun_mu">Silakan Login dengan akun mu</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="belum_punya_akun_daftar_sekarang">Belum punya akun?Daftar Sekarang!</string>
 </resources>

@@ -56,6 +56,17 @@ dependencies {
     //MarkdownView
     implementation ("com.github.mukeshsolanki:MarkdownView-Android:2.0.0")
 
+    //Lifecycle
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    implementation("androidx.activity:activity-ktx:1.8.1")
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
+
+    //Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
     // CameraX core library using the camera2 implementation
     val camerax_version = "1.3.0-alpha04"
     // The following line is optional, as the core library is included indirectly by camera-camera2

@@ -4,9 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.databinding.ActivitySplashScreenBinding
-import id.wildexplorerscompanion.ui.home.MainActivity
 import id.wildexplorerscompanion.ui.login.LoginActivity
 
 class SplashScreenActivity : AppCompatActivity() {
@@ -21,8 +19,6 @@ class SplashScreenActivity : AppCompatActivity() {
 
             finish()
         }, SPLASH_DELAY)
-
-
     }
 
     companion object {

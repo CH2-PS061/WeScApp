@@ -26,7 +26,6 @@ class WildRepository private constructor(private val apiService: ApiService,priv
     suspend fun saveSession(user: UserModel){
         userPreference.saveSession(user)
     }
-
     suspend fun logout() = userPreference.logout()
 
     companion object {

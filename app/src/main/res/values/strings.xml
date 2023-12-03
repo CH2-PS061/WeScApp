@@ -12,4 +12,7 @@
     <string name="name">Nama</string>
     <string name="register">Register</string>
     <string name="register_to_login_text">Sudah punya akun?Masuk Disini</string>
+    <string name="survival_guide">Survival Guide</string>
+    <string name="first_aid_guide">First Aid Guide</string>
+    <string name="plant_identify">Plant Identify</string>
 </resources>

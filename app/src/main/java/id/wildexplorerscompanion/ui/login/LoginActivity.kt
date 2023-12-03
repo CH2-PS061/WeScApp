@@ -9,7 +9,6 @@ import android.text.Spanned
 import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -38,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
 
         loginViewModel.loginResponse.observe(this){
             showToast("Login ${it.message}")
-            val intent =Intent(this@LoginActivity, MainActivity::class.java)
+            val intent =Intent(this@LoginActivity, HomeActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
             finish()

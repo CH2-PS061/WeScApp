@@ -67,6 +67,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
+    //DataStore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
     // CameraX core library using the camera2 implementation
     val camerax_version = "1.3.0-alpha04"
     // The following line is optional, as the core library is included indirectly by camera-camera2

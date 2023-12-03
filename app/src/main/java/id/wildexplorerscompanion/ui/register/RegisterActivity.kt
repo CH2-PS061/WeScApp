@@ -12,7 +12,6 @@ import android.text.style.ClickableSpan
 import android.view.View
 import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.databinding.ActivityRegisterBinding
-import id.wildexplorerscompanion.ui.home.MainActivity
 import id.wildexplorerscompanion.ui.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
@@ -30,7 +29,7 @@ class RegisterActivity : AppCompatActivity() {
         val clickAbleSpan = object : ClickableSpan(){
             override fun onClick(widget: View) {
                 val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                widget.context.startActivity(intent)
+                startActivity(intent)
             }
 
             override fun updateDrawState(ds: TextPaint) {
@@ -39,7 +38,7 @@ class RegisterActivity : AppCompatActivity() {
 
             }
         }
-        spanString.setSpan(clickAbleSpan,19,30, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spanString.setSpan(clickAbleSpan,18,30, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         binding.tvRegister.text = spanString
         binding.tvRegister.highlightColor = Color.TRANSPARENT

@@ -17,6 +17,7 @@ import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.databinding.ActivityLoginBinding
 import id.wildexplorerscompanion.ui.ViewModelFactory
 import id.wildexplorerscompanion.ui.home.MainActivity
+import id.wildexplorerscompanion.ui.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -52,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
 
         val clickAbleSpan = object : ClickableSpan(){
             override fun onClick(widget: View) {
-                val intent = Intent(this@LoginActivity,MainActivity::class.java)
+                val intent = Intent(this@LoginActivity,RegisterActivity::class.java)
                 widget.context.startActivity(intent)
             }
 

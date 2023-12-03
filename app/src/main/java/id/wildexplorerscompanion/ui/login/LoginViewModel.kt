@@ -1,11 +1,13 @@
 package id.wildexplorerscompanion.ui.login
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
+import id.wildexplorerscompanion.data.pref.UserModel
 import id.wildexplorerscompanion.data.repo.WildRepository
 import id.wildexplorerscompanion.data.retrofit.response.LoginResponse
 import kotlinx.coroutines.launch
@@ -20,14 +22,24 @@ class LoginViewModel(private val repository: WildRepository): ViewModel() {
         viewModelScope.launch {
             try {
                 val response = repository.login(email, password)
+                saveSession(UserModel(
+                    response.data.id,
+                    response.data.name,
+                    response.data.email
+                ))
                 _loginResponse.postValue(response)
             }catch (e: HttpException){
-                val jsonString = e.response()?.errorBody()?.string()
-                val errorBody = Gson().fromJson(jsonString, LoginResponse::class.java)
-                val errorMessage = errorBody.message
-                Log.d("TAG", "getLogin: ${errorMessage.toString()}")
+                val jsonString = e.response()?.errorBody().toString()
+//                val errorBody = Gson().fromJson(jsonString, LoginResponse::class.java)
+//                val errorMessage = errorBody.message
+                Log.d(TAG, "getLogin: $jsonString")
             }
+        }
+    }
 
+    private fun saveSession(user: UserModel){
+        viewModelScope.launch {
+            repository.saveSession(user)
         }
     }
 

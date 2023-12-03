@@ -35,8 +35,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         loginViewModel.loginResponse.observe(this){
-
         }
+
     }
 
 

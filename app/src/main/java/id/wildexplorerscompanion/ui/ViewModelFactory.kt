@@ -7,6 +7,7 @@ import id.wildexplorerscompanion.data.repo.WildRepository
 import id.wildexplorerscompanion.di.Injection
 import id.wildexplorerscompanion.ui.home.HomeViewModel
 import id.wildexplorerscompanion.ui.login.LoginViewModel
+import id.wildexplorerscompanion.ui.register.RegisterViewModel
 
 class ViewModelFactory(private val repository: WildRepository): ViewModelProvider.NewInstanceFactory() {
 
@@ -15,6 +16,8 @@ class ViewModelFactory(private val repository: WildRepository): ViewModelProvide
             return LoginViewModel(repository) as T
         } else if (modelClass.isAssignableFrom(HomeViewModel::class.java)){
             return HomeViewModel(repository) as T
+        }else if (modelClass.isAssignableFrom(RegisterViewModel::class.java)){
+            return RegisterViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknow ViewModel Class: ${modelClass.name}")
     }

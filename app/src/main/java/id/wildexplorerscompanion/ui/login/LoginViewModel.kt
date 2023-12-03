@@ -1,12 +1,12 @@
 package id.wildexplorerscompanion.ui.login
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
+import com.google.gson.JsonSyntaxException
 import id.wildexplorerscompanion.data.pref.UserModel
 import id.wildexplorerscompanion.data.repo.WildRepository
 import id.wildexplorerscompanion.data.retrofit.response.LoginResponse
@@ -29,10 +29,15 @@ class LoginViewModel(private val repository: WildRepository): ViewModel() {
                 ))
                 _loginResponse.postValue(response)
             }catch (e: HttpException){
-                val jsonString = e.response()?.errorBody().toString()
-//                val errorBody = Gson().fromJson(jsonString, LoginResponse::class.java)
-//                val errorMessage = errorBody.message
-                Log.d(TAG, "getLogin: $jsonString")
+                val jsonString = e.response()?.errorBody()?.string()
+                try {
+                val errorBody = Gson().fromJson(jsonString,LoginResponse::class.java)
+                val errorMessage = errorBody.message
+                _loginResponse.postValue(errorBody)
+                Log.d(TAG, "getLogin: $errorMessage")
+                }catch (ex: JsonSyntaxException){
+                    Log.e(TAG, "message: $jsonString" )
+                }
             }
         }
     }

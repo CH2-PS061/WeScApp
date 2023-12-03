@@ -19,8 +19,6 @@ class SplashScreenActivity : AppCompatActivity() {
 
             finish()
         }, SPLASH_DELAY)
-
-
     }
 
     companion object {

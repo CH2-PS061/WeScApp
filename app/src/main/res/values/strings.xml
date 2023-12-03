@@ -7,4 +7,7 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="belum_punya_akun_daftar_sekarang">Belum punya akun?Daftar Sekarang!</string>
+    <string name="survival_guide">Survival Guide</string>
+    <string name="first_aid_guide">First Aid Guide</string>
+    <string name="plant_identify">Plant Identify</string>
 </resources>

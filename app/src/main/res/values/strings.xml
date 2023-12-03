@@ -7,4 +7,9 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="belum_punya_akun_daftar_sekarang">Belum punya akun?Daftar Sekarang!</string>
+    <string name="title_register">Isi Form Dibawah Ini Untuk Memulai Perjalananmu</string>
+    <string name="greeting_text">Selamat Datang!</string>
+    <string name="name">Nama</string>
+    <string name="register">Register</string>
+    <string name="register_to_login_text">Sudah punya akun?Masuk Disini</string>
 </resources>

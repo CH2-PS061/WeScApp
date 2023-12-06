@@ -51,17 +51,13 @@
         app:layout_constraintTop_toBottomOf="@+id/text_quote"
         app:startIconDrawable="@drawable/ic_email">
 
-        <com.google.android.material.textfield.TextInputEditText
+
+        <id.wildexplorerscompanion.ui.custom_view.CustomEmailEditText
             android:id="@+id/edt_text_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:hint="@string/email" />
-
-        <id.wildexplorerscompanion.ui.custom_view.CustomEmailEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:background="@drawable/border_edit_text"/>
 

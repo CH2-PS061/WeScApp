@@ -12,4 +12,10 @@
     <string name="name">Nama</string>
     <string name="register">Register</string>
     <string name="register_to_login_text">Sudah punya akun?Masuk Disini</string>
+    <string name="not_fill">Must Be Fill!</string>
+    <string name="not_valid_email">Email Not Valid</string>
+    <string name="error_found">Your Account Not Found</string>
+    <string name="close">Close</string>
+    <string name="register_info">Registrasi Sukses!</string>
+    <string name="password_not_valid">Password at least 8 characters</string>
 </resources>

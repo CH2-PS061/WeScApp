@@ -58,6 +58,13 @@
             android:inputType="textEmailAddress"
             android:hint="@string/email" />
 
+        <id.wildexplorerscompanion.ui.custom_view.CustomEmailEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/border_edit_text"/>
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

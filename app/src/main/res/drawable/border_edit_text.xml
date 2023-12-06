@@ -4,14 +4,14 @@
         android:state_focused="true">
         <shape android:shape="rectangle">
             <stroke android:width="2dp" android:color="#E4007E" />
-            <corners android:bottomLeftRadius="15dp" android:bottomRightRadius="15dp" android:topLeftRadius="15dp" android:topRightRadius="15dp" />
+            <corners android:radius="5dp"/>
         </shape>
     </item>
     <item android:state_enabled="true" android:state_focused="false">
         <shape
             android:shape="rectangle">
-            <stroke android:width="2dp" android:color="#A1A1A1" />
-            <corners android:bottomLeftRadius="15dp" android:bottomRightRadius="15dp" android:topLeftRadius="15dp" android:topRightRadius="15dp" />
+            <stroke android:width="2dp" android:color="@color/applegreen" />
+            <corners android:radius="5dp"/>
         </shape>
     </item>
 </selector>

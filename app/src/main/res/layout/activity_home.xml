@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top_panel"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/background_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_home_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="43dp"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Halo, USERNAME"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/top_panel"
+            app:layout_constraintStart_toStartOf="@+id/top_panel"
+            app:layout_constraintTop_toTopOf="@+id/top_panel" />
+
+        <ImageView
+            android:id="@+id/iv_home_image"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="14dp"
+            android:src="@drawable/ic_profile"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_home_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_home_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_survival"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:background="@drawable/item_home_background"
+        android:layout_marginTop="135dp"
+        android:layout_marginStart="70dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_panel">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/icon_guide"
+            android:layout_gravity="center"
+            android:layout_marginTop="13dp" />
+
+        <TextView
+            android:text="@string/survival_guide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="12sp"
+            android:textAlignment="center" />
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/applegreen" />
+
+        <TextView
+            android:text="Help to Guide you In Wild Nature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="8sp"
+            android:fontFamily="@font/roboto_light"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            tools:ignore="SmallSp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_first_aid"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/item_home_background"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_survival"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="13dp"
+            android:src="@drawable/icon_medical" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/first_aid_guide"
+            android:textAlignment="center"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/applegreen"
+            app:layout_constraintTop_toBottomOf="@+id/text_survival" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="5dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="Guidance For our first rescuers in the wild"
+            android:textAlignment="center"
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_plant"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:background="@drawable/item_home_background"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_survival">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="13dp"
+            android:src="@drawable/icon_camera" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/plant_identify"
+            android:textAlignment="center"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/applegreen"
+            app:layout_constraintTop_toBottomOf="@+id/text_survival" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="Helps analyze by using Cam the edible plants in the wild"
+            android:textAlignment="center"
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

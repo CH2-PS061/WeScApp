@@ -10,18 +10,29 @@ import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
+import androidx.activity.viewModels
 import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.databinding.ActivityRegisterBinding
-import id.wildexplorerscompanion.ui.home.MainActivity
+import id.wildexplorerscompanion.ui.ViewModelFactory
 import id.wildexplorerscompanion.ui.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRegisterBinding
+    private val registerViewModel by viewModels<RegisterViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         signInText()
+
+        binding.btnRegister.setOnClickListener {
+            val name = binding.edtPersonName.text.toString()
+            val email = binding.edtTextEmail.text.toString()
+            val password = binding.edtTextPassword.text.toString()
+            registerViewModel.getRegister(name,email,password)
+        }
     }
     private fun signInText(){
         val text ="Sudah Punya Akun? Masuk Disini"
@@ -30,7 +41,7 @@ class RegisterActivity : AppCompatActivity() {
         val clickAbleSpan = object : ClickableSpan(){
             override fun onClick(widget: View) {
                 val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                widget.context.startActivity(intent)
+                startActivity(intent)
             }
 
             override fun updateDrawState(ds: TextPaint) {
@@ -39,7 +50,7 @@ class RegisterActivity : AppCompatActivity() {
 
             }
         }
-        spanString.setSpan(clickAbleSpan,19,30, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spanString.setSpan(clickAbleSpan,18,30, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         binding.tvRegister.text = spanString
         binding.tvRegister.highlightColor = Color.TRANSPARENT

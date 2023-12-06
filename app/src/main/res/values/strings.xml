@@ -15,4 +15,9 @@
     <string name="survival_guide">Survival Guide</string>
     <string name="first_aid_guide">First Aid Guide</string>
     <string name="plant_identify">Plant Identify</string>
+    <string name="password_not_valid">Password at least 8 characters</string>
+    <string name="register_info">Registrasi Sukses!</string>
+    <string name="close">Close</string>
+    <string name="error_found">Your account Not Found</string>
+    <string name="not_fill">Must Be Fill</string>
 </resources>

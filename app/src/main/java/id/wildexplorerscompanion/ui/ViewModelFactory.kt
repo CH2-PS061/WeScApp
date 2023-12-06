@@ -11,6 +11,7 @@ import id.wildexplorerscompanion.ui.register.RegisterViewModel
 
 class ViewModelFactory(private val repository: WildRepository): ViewModelProvider.NewInstanceFactory() {
 
+    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(LoginViewModel::class.java)){
             return LoginViewModel(repository) as T

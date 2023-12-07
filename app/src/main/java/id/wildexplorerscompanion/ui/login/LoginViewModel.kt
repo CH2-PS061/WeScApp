@@ -9,6 +9,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import id.wildexplorerscompanion.data.pref.UserModel
 import id.wildexplorerscompanion.data.repo.WildRepository
+import id.wildexplorerscompanion.data.retrofit.TokenInterceptor
 import id.wildexplorerscompanion.data.retrofit.response.LoginResponse
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -18,14 +19,18 @@ class LoginViewModel(private val repository: WildRepository): ViewModel() {
     private val _loginResponse = MutableLiveData<LoginResponse>()
     val loginResponse: LiveData<LoginResponse> = _loginResponse
 
+    private val tokenInterceptor = TokenInterceptor()
+
     fun getLogin(email: String, password: String){
         viewModelScope.launch {
             try {
                 val response = repository.login(email, password)
+                val authToken = tokenInterceptor.authToken.toString()
                 saveSession(UserModel(
                     response.data.id,
                     response.data.name,
-                    response.data.email
+                    response.data.email,
+                    authToken
                 ))
                 _loginResponse.postValue(response)
             }catch (e: HttpException){

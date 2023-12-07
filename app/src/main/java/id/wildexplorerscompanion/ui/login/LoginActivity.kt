@@ -35,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
             loginViewModel.getLogin(email, password)
         }
 
+        // TODO: 1. Perbaiki logic buat login  
         loginViewModel.loginResponse.observe(this){
             showToast("Login ${it.message}")
             val intent =Intent(this@LoginActivity, HomeActivity::class.java)

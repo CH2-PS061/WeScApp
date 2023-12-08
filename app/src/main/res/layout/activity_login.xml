@@ -44,13 +44,13 @@
         android:layout_marginStart="43dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="43dp"
+        android:focusable="false"
+        android:focusableInTouchMode="true"
         android:background="@color/white"
-        app:boxStrokeColor="@color/applegreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_quote"
         app:startIconDrawable="@drawable/ic_email">
-
 
         <id.wildexplorerscompanion.ui.custom_view.CustomEmailEditText
             android:id="@+id/edt_text_email"
@@ -70,6 +70,8 @@
         android:layout_marginStart="43dp"
         android:layout_marginTop="19dp"
         android:layout_marginEnd="43dp"
+        android:focusable="false"
+        android:focusableInTouchMode="true"
         android:background="@color/white"
         app:boxStrokeColor="@color/applegreen"
         app:passwordToggleEnabled="true"
@@ -114,6 +116,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="50dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

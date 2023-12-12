@@ -9,6 +9,7 @@ import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.databinding.ActivityHomeBinding
 import id.wildexplorerscompanion.ui.ViewModelFactory
 import id.wildexplorerscompanion.ui.login.LoginActivity
+import id.wildexplorerscompanion.ui.profile.ProfileActivity
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -23,6 +24,10 @@ class HomeActivity : AppCompatActivity() {
         homeViewModel.getSession().observe(this){
             val getName = it.name
             binding.tvHomeName.text = "Halo, $getName"
+        }
+
+        binding.ivHomeImage.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
     }
 }

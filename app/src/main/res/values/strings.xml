@@ -22,4 +22,5 @@
     <string name="not_fill">Must Be Fill</string>
     <string name="not_valid_email"> Email Not Valid</string>
     <string name="change_password">Ganti Password</string>
+    <string name="profile">Profile</string>
 </resources>

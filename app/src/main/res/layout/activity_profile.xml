@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.profile.ProfileActivity">
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="Logout"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Penggantur Akun:"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="16dp"/>
+
+    <Button
+        android:id="@+id/btn_delete_account"
+        android:text="Hapus Akun"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_delete"/>
+
+    <Button
+        android:id="@+id/btn_change_password"
+        android:text="Ganti Password"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_lock"/>
+
+
+</LinearLayout>

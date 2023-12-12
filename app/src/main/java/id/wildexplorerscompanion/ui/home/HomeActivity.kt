@@ -1,5 +1,6 @@
 package id.wildexplorerscompanion.ui.home
 
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.databinding.ActivityHomeBinding
 import id.wildexplorerscompanion.ui.ViewModelFactory
 import id.wildexplorerscompanion.ui.login.LoginActivity
+import id.wildexplorerscompanion.ui.plantidentify.CameraActivity
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -20,9 +22,15 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        homeViewModel.getSession().observe(this){
+        homeViewModel.getSession().observe(this) {
             val getName = it.name
             binding.tvHomeName.text = "Halo, $getName"
         }
+        binding.layoutPlant.setOnClickListener {
+            val Intent = Intent(this@HomeActivity, CameraActivity::class.java)
+            startActivity(Intent)
+            finish()
+        }
+
     }
 }

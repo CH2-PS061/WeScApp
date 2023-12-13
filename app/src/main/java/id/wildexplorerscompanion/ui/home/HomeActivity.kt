@@ -37,9 +37,8 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
         binding.layoutPlant.setOnClickListener {
-            val Intent = Intent(this@HomeActivity, CameraActivity::class.java)
-            startActivity(Intent)
-            finish()
+            val intent = Intent(this@HomeActivity, CameraActivity::class.java)
+            startActivity(intent)
         }
 
     }

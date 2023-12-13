@@ -6,20 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.plantidentify.CameraActivity">
 
-    <androidx.camera.view.PreviewView
-        android:id="@+id/viewFinder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+
     <ImageView
-        android:layout_width="370sp"
+        android:layout_width="match_parent"
         android:layout_height="370sp"
         android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
         android:id="@+id/imageView"
         android:layout_marginTop="10sp"
         tools:ignore="MissingConstraints" />
@@ -28,6 +20,7 @@
         android:id="@+id/btn_camera"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
+        app:icon="@drawable/ic_capture"
         android:layout_marginBottom="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

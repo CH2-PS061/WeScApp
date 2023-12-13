@@ -1,25 +1,19 @@
 package id.wildexplorerscompanion.data.retrofit
 
+import id.wildexplorerscompanion.ui.login.LoginViewModel
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
-
-class TokenInterceptor: Interceptor {
-    var authToken: String? = null
-
-
+class TokenInterceptor() : Interceptor {
+    var tokenValue = ""
     override fun intercept(chain: Interceptor.Chain): Response {
-        val originalRequest: Request =chain.request()
+        val request = chain.request()
+        val response = chain.proceed(request)
 
-        val response: Response = chain.proceed(originalRequest)
-
-        val authHeader = response.header("X-Auth-Token")
-
-        if (authHeader != null && authHeader.startsWith("")) {
-            authToken = authHeader.substring("".length)
-        }
-
+        // Extract the token from the response headers )
+        val token = response.headers("x-auth-token: ")
+        tokenValue = token.toString()
         return response
     }
-
 }
+

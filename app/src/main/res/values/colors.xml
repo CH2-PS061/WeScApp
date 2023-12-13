@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="wildwatermelon">#Ff6584</color>
 <!--    Untuk Backgroud Color-->
     <color name="hintgreen">#F6FFF7</color>
 <!--    Primary Color Unutk View-->

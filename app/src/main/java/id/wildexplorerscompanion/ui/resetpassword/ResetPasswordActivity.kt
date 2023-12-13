@@ -17,12 +17,4 @@ class ResetPasswordActivity : AppCompatActivity() {
         supportActionBar?.title = getString(R.string.change_password)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
-
-    // TODO: Fix Unutk Kembali Ke profile Activity 
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            
-        }
-        return super.onContextItemSelected(item)
-    }
 }

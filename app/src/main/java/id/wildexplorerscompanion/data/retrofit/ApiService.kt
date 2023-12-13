@@ -4,6 +4,8 @@ import id.wildexplorerscompanion.data.retrofit.response.LoginResponse
 import id.wildexplorerscompanion.data.retrofit.response.RegisterResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.Header
+import retrofit2.http.HeaderMap
 import retrofit2.http.POST
 
 interface ApiService {
@@ -19,6 +21,6 @@ interface ApiService {
     @POST("users/login")
     suspend fun login(
         @Field("email") email: String,
-        @Field("password") password: String
+        @Field("password") password: String,
     ): LoginResponse
 }

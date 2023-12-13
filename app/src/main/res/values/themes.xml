@@ -16,8 +16,10 @@
         <item name="colorSurface">@color/applegreen</item>
         <item name="android:colorBackground">@color/hintgreen</item>
 
-        <item name="tint">@color/white</item>
         <item name="titleTextColor">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+
     </style>
 
     <style name="Theme.WildExplorersCompanion" parent="Base.Theme.WildExplorersCompanion" />u

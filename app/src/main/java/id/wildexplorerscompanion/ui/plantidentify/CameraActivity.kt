@@ -1,5 +1,3 @@
-
-
 package id.wildexplorerscompanion.ui.plantidentify
 
 import android.Manifest
@@ -22,7 +20,6 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.IOException
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
-
 
 class CameraActivity : AppCompatActivity() {
     var camera: Button? = null
@@ -52,6 +49,8 @@ class CameraActivity : AppCompatActivity() {
                 Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             startActivityForResult(cameraIntent, 1)
         }
+        supportActionBar?.title = "Identifikasi Tanaman"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     fun classifyImage(image: Bitmap) {

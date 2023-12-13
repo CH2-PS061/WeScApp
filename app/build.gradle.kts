@@ -84,6 +84,9 @@ dependencies {
     //DataStore
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
+    //CircleImageView
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+
     // Glide library for image management and loading.
     implementation ("com.github.bumptech.glide:glide:4.12.0")
 
@@ -91,6 +94,7 @@ dependencies {
     implementation("androidx.camera:camera-camera2:$cameraxVersion")
     implementation("androidx.camera:camera-lifecycle:$cameraxVersion")
     implementation("androidx.camera:camera-view:$cameraxVersion")
+
 
 
 }

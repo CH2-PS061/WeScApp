@@ -1,6 +1,8 @@
 package id.wildexplorerscompanion.data.retrofit
 
+import androidx.lifecycle.ViewModel
 import id.wildexplorerscompanion.BuildConfig
+import id.wildexplorerscompanion.ui.login.LoginViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -12,6 +14,7 @@ object ApiConfig {
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
+            .addInterceptor(TokenInterceptor())
             .build()
         val retrofit = Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)

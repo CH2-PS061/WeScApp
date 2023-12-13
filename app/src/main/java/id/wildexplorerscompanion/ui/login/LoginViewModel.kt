@@ -25,12 +25,11 @@ class LoginViewModel(private val repository: WildRepository): ViewModel() {
         viewModelScope.launch {
             try {
                 val response = repository.login(email, password)
-                val authToken = tokenInterceptor.authToken.toString()
                 saveSession(UserModel(
                     response.data.id,
                     response.data.name,
                     response.data.email,
-                    authToken
+                    tokenInterceptor.tokenValue
                 ))
                 _loginResponse.postValue(response)
             }catch (e: HttpException){

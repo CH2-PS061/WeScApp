@@ -10,6 +10,7 @@ import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.databinding.ActivityHomeBinding
 import id.wildexplorerscompanion.ui.ViewModelFactory
 import id.wildexplorerscompanion.ui.login.LoginActivity
+import id.wildexplorerscompanion.ui.profile.ProfileActivity
 import id.wildexplorerscompanion.ui.plantidentify.CameraActivity
 
 class HomeActivity : AppCompatActivity() {
@@ -24,7 +25,16 @@ class HomeActivity : AppCompatActivity() {
 
         homeViewModel.getSession().observe(this) {
             val getName = it.name
-            binding.tvHomeName.text = "Halo, $getName"
+            if (it.isLogin){
+                binding.tvHomeName.text = "Hello, $getName"
+            } else{
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
+        }
+
+        binding.ivHomeImage.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
         binding.layoutPlant.setOnClickListener {
             val Intent = Intent(this@HomeActivity, CameraActivity::class.java)

@@ -23,7 +23,12 @@ class HomeActivity : AppCompatActivity() {
 
         homeViewModel.getSession().observe(this){
             val getName = it.name
-            binding.tvHomeName.text = "Halo, $getName"
+            if (it.isLogin){
+                binding.tvHomeName.text = "Hello, $getName"
+            } else{
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
         }
 
         binding.ivHomeImage.setOnClickListener {

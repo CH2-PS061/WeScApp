@@ -12,15 +12,12 @@
 
     <style name="ThemeActionBar" parent="Theme.Material3.DayNight">
         <item name="colorPrimary">@color/applegreen</item>
+        <item name="colorPrimaryVariant">@color/applegreen</item>
+        <item name="colorSurface">@color/applegreen</item>
         <item name="android:colorBackground">@color/hintgreen</item>
-        <item name="android:actionBarStyle">@color/white</item>
+
+        <item name="tint">@color/white</item>
         <item name="titleTextColor">@color/white</item>
-        <item name="actionBarTheme">@color/white</item>
-
-    </style>
-
-    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/applegreen</item>
     </style>
 
     <style name="Theme.WildExplorersCompanion" parent="Base.Theme.WildExplorersCompanion" />u

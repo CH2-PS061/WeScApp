@@ -24,11 +24,13 @@
         <activity
             android:name=".ui.profile.ProfileActivity"
             android:exported="true"
-            android:theme="@style/ThemeActionBar"/>
+            android:theme="@style/ThemeActionBar"
+            android:parentActivityName=".ui.home.HomeActivity"/>
         <activity
             android:name=".ui.resetpassword.ResetPasswordActivity"
             android:exported="false"
-            android:theme="@style/ThemeActionBar"/>
+            android:theme="@style/ThemeActionBar"
+            android:parentActivityName=".ui.profile.ProfileActivity"/>
         <activity
             android:name=".ui.home.HomeActivity"
             android:exported="false" />

@@ -7,6 +7,9 @@ data class RegisterResponse(
 	@field:SerializedName("data")
 	val data: DataRegister,
 
+	@field:SerializedName("success")
+	val success: Boolean,
+
 	@field:SerializedName("message")
 	val message: String
 )

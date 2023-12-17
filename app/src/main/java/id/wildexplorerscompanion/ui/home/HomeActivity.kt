@@ -9,9 +9,11 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.databinding.ActivityHomeBinding
 import id.wildexplorerscompanion.ui.ViewModelFactory
+import id.wildexplorerscompanion.ui.firstaid.FirstAidActivity
 import id.wildexplorerscompanion.ui.login.LoginActivity
 import id.wildexplorerscompanion.ui.profile.ProfileActivity
 import id.wildexplorerscompanion.ui.plantidentify.CameraActivity
+import id.wildexplorerscompanion.ui.survivalguide.SurvivalGuideActivity
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -39,6 +41,14 @@ class HomeActivity : AppCompatActivity() {
         binding.layoutPlant.setOnClickListener {
             val intent = Intent(this@HomeActivity, CameraActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.layoutSurvival.setOnClickListener{
+            startActivity(Intent(this,SurvivalGuideActivity::class.java))
+        }
+
+        binding.layoutFirstAid.setOnClickListener{
+            startActivity(Intent(this,FirstAidActivity::class.java))
         }
 
     }

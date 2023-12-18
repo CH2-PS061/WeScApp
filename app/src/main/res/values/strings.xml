@@ -12,9 +12,9 @@
     <string name="name">Nama</string>
     <string name="register">Register</string>
     <string name="register_to_login_text">Sudah punya akun?Masuk Disini</string>
-    <string name="survival_guide">Survival Guide</string>
-    <string name="first_aid_guide">First Aid Guide</string>
-    <string name="plant_identify">Plant Identify</string>
+    <string name="survival_guide">Panduan Bertahan Hidup</string>
+    <string name="first_aid_guide">Panduan Pertolongan Pertama</string>
+    <string name="plant_identify">Identifikasi Tanaman</string>
     <string name="password_not_valid">Password at least 8 characters</string>
     <string name="register_info">Akun Berhasil Dibuat!</string>
     <string name="close">Close</string>

@@ -20,20 +20,25 @@
         android:theme="@style/Theme.WildExplorersCompanion"
         tools:targetApi="31">
         <activity
-            android:name=".ui.profile.ProfileActivity"
-            android:exported="true"
+            android:name=".ui.plantdetail.PlantDetailActivity"
+            android:exported="false"
             android:theme="@style/ThemeActionBar"
             android:parentActivityName=".ui.home.HomeActivity"/>
+        <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="true"
+            android:parentActivityName=".ui.home.HomeActivity"
+            android:theme="@style/ThemeActionBar" />
         <activity
             android:name=".ui.plantidentify.CameraActivity"
             android:exported="true"
-            android:theme="@style/ThemeActionBar"
-            android:parentActivityName=".ui.home.HomeActivity"/>
+            android:parentActivityName=".ui.home.HomeActivity"
+            android:theme="@style/ThemeActionBar" />
         <activity
             android:name=".ui.resetpassword.ResetPasswordActivity"
             android:exported="false"
-            android:theme="@style/ThemeActionBar"
-            android:parentActivityName=".ui.profile.ProfileActivity"/>
+            android:parentActivityName=".ui.profile.ProfileActivity"
+            android:theme="@style/ThemeActionBar" />
         <activity
             android:name=".ui.home.HomeActivity"
             android:exported="false" />

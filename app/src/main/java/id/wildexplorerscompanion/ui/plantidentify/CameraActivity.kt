@@ -2,6 +2,7 @@ package id.wildexplorerscompanion.ui.plantidentify
 
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -15,6 +16,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.ml.Model
+import id.wildexplorerscompanion.ui.home.HomeActivity
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.IOException
@@ -52,7 +54,29 @@ class CameraActivity : AppCompatActivity() {
         supportActionBar?.title = "Identifikasi Tanaman"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
+    private fun succesDialog(plantname: String, confidence: Float, image: Bitmap) {
+        val view = layoutInflater.inflate(R.layout.dialog_success_add, null)
+        val builder = AlertDialog.Builder(this@CameraActivity)
+        builder.setView(view)
 
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        view.findViewById<TextView>(R.id.tv_result).text = plantname
+        view.findViewById<TextView>(R.id.tv_confidence).text =
+            String.format("%.1f%%", confidence* 100 )
+
+        view.findViewById<ImageView>(R.id.imageView).setImageBitmap(image)
+
+        view.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
+            dialog.dismiss()
+            val intentToHome = Intent(this@CameraActivity, HomeActivity::class.java)
+            intentToHome.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intentToHome)
+            finish()
+        }
+    }
     fun classifyImage(image: Bitmap) {
         try {
             val model: Model = Model.newInstance(getApplicationContext())
@@ -92,6 +116,8 @@ class CameraActivity : AppCompatActivity() {
             val classes = arrayOf("alang-alang", "begonia", "buah-merbei", "cantigi-gunung", "ciplukan", "daun-senggani", "honje", "lumut-hati", "paku-sayur", "pohpohan", "rane", "semanggi")
             result!!.text = classes[maxPos]
             confidence!!.text = String.format("%.1f%%", maxConfidence*100)
+
+            succesDialog(classes[maxPos], maxConfidence, image)
 
             // Releases model resources if no longer used.
             model.close()

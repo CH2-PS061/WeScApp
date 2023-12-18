@@ -1,9 +1,14 @@
 package id.wildexplorerscompanion.ui.profile
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.Button
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.databinding.ActivityProfileBinding
 import id.wildexplorerscompanion.ui.ViewModelFactory
@@ -34,11 +39,33 @@ class ProfileActivity : AppCompatActivity() {
             finish()
         }
 
+        profileBinding.btnDeleteAccount.setOnClickListener {
+            showCostumeDialog()
+        }
+
         profileViewModel.getSession().observe(this){
             profileBinding.nameUser.text = it.name
         }
+    }
 
-        // TODO: Buat Delete Akun dan Change Image Profile belum bisa 
+    private fun showCostumeDialog(){
+        val builder = AlertDialog.Builder(this)
+        val costumeAlertDialog = LayoutInflater.from(this).inflate(R.layout.dialog_delete_password,null)
+        builder.setView(costumeAlertDialog)
+        val dialog = builder.create()
+        val btnCancle = costumeAlertDialog.findViewById<Button>(R.id.btn_delete_no)
+        val btnYes = costumeAlertDialog.findViewById<Button>(R.id.btn_delete_ya)
+        btnYes.setOnClickListener {
+            profileViewModel.getSession().observe(this){
+                val getToken = it.token
+                val getEmail = it.email
+            }
+        }
+        btnCancle.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.show()
     }
 
 }

@@ -3,6 +3,8 @@ package id.wildexplorerscompanion.data.repo
 import id.wildexplorerscompanion.data.pref.UserModel
 import id.wildexplorerscompanion.data.pref.UserPreference
 import id.wildexplorerscompanion.data.retrofit.ApiService
+import id.wildexplorerscompanion.data.retrofit.response.ChangePasswordResponse
+import id.wildexplorerscompanion.data.retrofit.response.DeleteResponse
 import id.wildexplorerscompanion.data.retrofit.response.LoginResponse
 import id.wildexplorerscompanion.data.retrofit.response.RegisterResponse
 import kotlinx.coroutines.flow.Flow
@@ -15,6 +17,14 @@ class WildRepository private constructor(private val apiService: ApiService,priv
 
     suspend fun login(email: String, password: String): LoginResponse {
         return apiService.login(email, password)
+    }
+
+    suspend fun delete(token: String, email: String, password: String): DeleteResponse {
+        return apiService.delete(token, email, password)
+    }
+
+    suspend fun changePassword(token: String,email: String,currentPassword: String,newPassword: String): ChangePasswordResponse {
+        return apiService.changePassword(token, email, currentPassword, newPassword)
     }
 
 

@@ -11,6 +11,7 @@ import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.databinding.ActivityHomeBinding
 import id.wildexplorerscompanion.ui.ViewModelFactory
 import id.wildexplorerscompanion.ui.login.LoginActivity
+import id.wildexplorerscompanion.ui.plantdetail.PlantDetailActivity
 import id.wildexplorerscompanion.ui.profile.ProfileActivity
 import id.wildexplorerscompanion.ui.plantidentify.CameraActivity
 
@@ -44,7 +45,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         binding.layoutFirstAid.setOnClickListener {
-            startActivity(Intent(this,LoginActivity::class.java))
+            startActivity(Intent(this,PlantDetailActivity::class.java))
         }
     }
 }

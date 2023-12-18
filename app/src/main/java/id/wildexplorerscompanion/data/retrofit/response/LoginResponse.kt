@@ -23,5 +23,8 @@ data class DataLogin(
 	val id: Int,
 
 	@field:SerializedName("email")
-	val email: String
+	val email: String,
+
+	@field:SerializedName("token")
+	val token: String
 )

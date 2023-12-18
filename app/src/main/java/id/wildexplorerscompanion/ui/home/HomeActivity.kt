@@ -28,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
         homeViewModel.getSession().observe(this) {
             val getName = it.name
             if (it.isLogin){
-                binding.tvHomeName.text = "Hello, $getName"
+                binding.tvHomeName.text = getName
             } else{
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()

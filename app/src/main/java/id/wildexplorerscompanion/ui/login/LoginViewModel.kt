@@ -19,7 +19,6 @@ class LoginViewModel(private val repository: WildRepository): ViewModel() {
     private val _loginResponse = MutableLiveData<LoginResponse>()
     val loginResponse: LiveData<LoginResponse> = _loginResponse
 
-    private val tokenInterceptor = TokenInterceptor()
 
     fun getLogin(email: String, password: String){
         viewModelScope.launch {
@@ -29,7 +28,7 @@ class LoginViewModel(private val repository: WildRepository): ViewModel() {
                     response.data.id,
                     response.data.name,
                     response.data.email,
-                    tokenInterceptor.tokenValue
+                    response.data.token
                 ))
                 _loginResponse.postValue(response)
             }catch (e: HttpException){

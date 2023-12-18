@@ -35,7 +35,6 @@ class LoginActivity : AppCompatActivity() {
             loginViewModel.getLogin(email, password)
         }
 
-        // TODO: 1. Perbaiki logic buat login  
         loginViewModel.loginResponse.observe(this){
             if (!it.success){
                 showToast(it.message)

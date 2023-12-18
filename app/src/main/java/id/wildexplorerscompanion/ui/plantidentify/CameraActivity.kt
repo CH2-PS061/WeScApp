@@ -35,9 +35,6 @@ class CameraActivity : AppCompatActivity() {
         setContentView(R.layout.activity_camera)
         camera = findViewById<Button>(R.id.btn_camera)
         gallery = findViewById<Button>(R.id.btn_gallery)
-        result = findViewById<TextView>(R.id.tv_result)
-        confidence = findViewById<TextView>(R.id.tv_confidence)
-        imageView = findViewById<ImageView>(R.id.imageView)
         camera!!.setOnClickListener {
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                 val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)

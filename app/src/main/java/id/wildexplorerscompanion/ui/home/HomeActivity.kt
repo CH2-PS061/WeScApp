@@ -4,6 +4,7 @@ package id.wildexplorerscompanion.ui.home
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.LinearLayout
 import androidx.activity.viewModels
 import androidx.lifecycle.viewmodel.viewModelFactory
 import id.wildexplorerscompanion.R
@@ -36,10 +37,14 @@ class HomeActivity : AppCompatActivity() {
         binding.ivHomeImage.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
-        binding.layoutPlant.setOnClickListener {
-            val intent = Intent(this@HomeActivity, CameraActivity::class.java)
-            startActivity(intent)
+
+        val layoutClick = findViewById<LinearLayout>(R.id.layout_plant)
+        layoutClick.setOnClickListener {
+            startActivity(Intent(this, CameraActivity::class.java))
         }
 
+        binding.layoutFirstAid.setOnClickListener {
+            startActivity(Intent(this,LoginActivity::class.java))
+        }
     }
 }

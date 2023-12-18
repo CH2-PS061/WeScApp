@@ -20,8 +20,10 @@ import androidx.appcompat.app.AppCompatActivity
 import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.ml.Model
 import id.wildexplorerscompanion.ui.home.HomeActivity
+import id.wildexplorerscompanion.ui.plantdetail.PlantDetailActivity
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
@@ -65,6 +67,17 @@ class CameraActivity : AppCompatActivity() {
 
         if (confidence >= 0.9 ){
             view.findViewById<LinearLayout>(R.id.layout_warning).visibility = View.GONE
+            val btnDetail = view.findViewById<Button>(R.id.btn_detail)
+            val bitmap: Bitmap = image
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            val byteArray = stream.toByteArray()
+            btnDetail.setOnClickListener {
+                val intent = Intent(this, PlantDetailActivity::class.java)
+                intent.putExtra("KEY",plantname)
+                intent.putExtra("IMG",byteArray)
+                startActivity(intent)
+            }
         }
 
         view.findViewById<TextView>(R.id.tv_result).text = plantname

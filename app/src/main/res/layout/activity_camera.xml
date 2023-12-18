@@ -41,7 +41,7 @@
 
 
     <LinearLayout
-        android:id="@+id/btn_camera"
+        android:id="@+id/btn_kamera"
         android:layout_width="110dp"
         android:layout_height="125dp"
         android:layout_marginEnd="80dp"

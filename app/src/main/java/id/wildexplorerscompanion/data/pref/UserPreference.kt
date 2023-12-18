@@ -19,7 +19,7 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         dataStore.edit { preferences ->
             preferences[USER_ID] = user.userId
             preferences[NAME_ID] = user.name
-            preferences[EMAIL_KEY] = user.name
+            preferences[EMAIL_KEY] = user.email
             preferences[TOKEN_KEY] = user.token
             preferences[IS_LOGIN_KEY] = true
         }

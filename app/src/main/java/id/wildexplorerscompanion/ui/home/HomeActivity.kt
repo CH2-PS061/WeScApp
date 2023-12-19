@@ -2,6 +2,7 @@ package id.wildexplorerscompanion.ui.home
 
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -39,13 +40,20 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
 
-        val layoutClick = findViewById<LinearLayout>(R.id.layout_plant)
-        layoutClick.setOnClickListener {
+        binding.layoutPlant.setOnClickListener {
             startActivity(Intent(this, CameraActivity::class.java))
         }
 
         binding.layoutFirstAid.setOnClickListener {
-            startActivity(Intent(this,PlantDetailActivity::class.java))
+//            startActivity(Intent(this,))
+        }
+
+        binding.layoutSurvival.setOnClickListener {
+
+        }
+        binding.btnSos.setOnClickListener {
+            val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:115"))
+            startActivity(dialIntent)
         }
     }
 }

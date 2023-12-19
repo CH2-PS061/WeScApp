@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.plantidentify.CameraActivity">
 
-
     <LinearLayout
         android:id="@+id/btn_gallery"
         android:layout_width="105dp"
@@ -15,16 +14,17 @@
         android:layout_marginStart="80dp"
         android:background="@drawable/square_button_background"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="247dp"
-        tools:ignore="MissingConstraints" >
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="5dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/baseline_add_photo_alternate_24" />
 
         <TextView
@@ -39,7 +39,6 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/btn_kamera"
         android:layout_width="110dp"
@@ -48,15 +47,15 @@
         android:background="@drawable/square_button_background"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@id/btn_gallery"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_gallery">
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:src="@drawable/ic_camera_retro" />
-
 
         <TextView
             android:layout_width="match_parent"
@@ -67,8 +66,6 @@
             android:textAlignment="center"
             android:textColor="#EBF5EC"
             android:textSize="12sp" />
-
-
     </LinearLayout>
 
 

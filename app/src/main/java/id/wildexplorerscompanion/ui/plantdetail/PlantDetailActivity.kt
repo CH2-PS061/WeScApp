@@ -30,12 +30,5 @@ class PlantDetailActivity : AppCompatActivity() {
             detailBinding.tvPlantDescription.text = it.description
             detailBinding.ivDetailPlant.setImageBitmap(imageBitmap)
         }
-
-//        detailViewModel.getAllPlant().observe(this){
-//            it.map {
-//                detailBinding.tvPlantDetail.text = it.name
-//                detailBinding.tvPlantDescription.text = it.description
-//            }
-//        }
     }
 }

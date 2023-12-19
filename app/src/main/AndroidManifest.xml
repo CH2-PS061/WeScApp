@@ -20,15 +20,10 @@
         android:theme="@style/Theme.WildExplorersCompanion"
         tools:targetApi="31">
         <activity
-            android:name=".ui.firstaid.FirstAidActivity"
+            android:name=".ui.plantdetail.PlantDetailActivity"
             android:exported="false"
             android:theme="@style/ThemeActionBar"
             android:parentActivityName=".ui.home.HomeActivity"/>
-        <activity
-            android:name=".ui.survivalguide.SurvivalGuideActivity"
-            android:exported="false"
-            android:parentActivityName=".ui.home.HomeActivity"
-            android:theme="@style/ThemeActionBar" />
         <activity
             android:name=".ui.profile.ProfileActivity"
             android:exported="true"
@@ -36,7 +31,7 @@
             android:theme="@style/ThemeActionBar" />
         <activity
             android:name=".ui.plantidentify.CameraActivity"
-            android:exported="false"
+            android:exported="true"
             android:parentActivityName=".ui.home.HomeActivity"
             android:theme="@style/ThemeActionBar" />
         <activity

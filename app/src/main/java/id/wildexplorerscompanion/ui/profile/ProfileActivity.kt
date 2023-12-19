@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Button
+import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import id.wildexplorerscompanion.R
@@ -55,11 +56,18 @@ class ProfileActivity : AppCompatActivity() {
         val dialog = builder.create()
         val btnCancle = costumeAlertDialog.findViewById<Button>(R.id.btn_delete_no)
         val btnYes = costumeAlertDialog.findViewById<Button>(R.id.btn_delete_ya)
+        val edtPassword = costumeAlertDialog.findViewById<EditText>(R.id.edt_con_password)
         btnYes.setOnClickListener {
             profileViewModel.getSession().observe(this){
                 val getToken = it.token
                 val getEmail = it.email
+                val getPassword = edtPassword.text.toString()
+                profileViewModel.getDelete(getToken,getEmail,getPassword)
             }
+            startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
+            profileViewModel.logout()
+            dialog.dismiss()
+            finish()
         }
         btnCancle.setOnClickListener {
             dialog.dismiss()

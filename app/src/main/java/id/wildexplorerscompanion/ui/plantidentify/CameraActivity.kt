@@ -10,34 +10,36 @@ import android.media.ThumbnailUtils
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.ml.Model
 import id.wildexplorerscompanion.ui.home.HomeActivity
+import id.wildexplorerscompanion.ui.plantdetail.PlantDetailActivity
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
 class CameraActivity : AppCompatActivity() {
-    var camera: Button? = null
-    var gallery: Button? = null
-    var imageView: ImageView? = null
-    var result: TextView? = null
-    var confidence: TextView? = null
+    private lateinit var camera: LinearLayout
+    private lateinit var gallery: LinearLayout
+//    var imageView: ImageView? = null
+//    var result: TextView? = null
+//    var confidence: TextView? = null
     var imageSize = 300
-    protected override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
-        camera = findViewById<Button>(R.id.btn_camera)
-        gallery = findViewById<Button>(R.id.btn_gallery)
-        result = findViewById<TextView>(R.id.tv_result)
-        confidence = findViewById<TextView>(R.id.tv_confidence)
-        imageView = findViewById<ImageView>(R.id.imageView)
+        camera = findViewById(R.id.btn_kamera)
+        gallery = findViewById(R.id.btn_gallery)
         camera!!.setOnClickListener {
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                 val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
@@ -55,7 +57,7 @@ class CameraActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
     private fun succesDialog(plantname: String, confidence: Float, image: Bitmap) {
-        val view = layoutInflater.inflate(R.layout.dialog_success_add, null)
+        val view = layoutInflater.inflate(R.layout.dialog_scan_result, null)
         val builder = AlertDialog.Builder(this@CameraActivity)
         builder.setView(view)
 
@@ -63,11 +65,26 @@ class CameraActivity : AppCompatActivity() {
         dialog.show()
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
+        if (confidence >= 0.9 ){
+            view.findViewById<LinearLayout>(R.id.layout_warning).visibility = View.GONE
+            val btnDetail = view.findViewById<Button>(R.id.btn_detail)
+            val bitmap: Bitmap = image
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            val byteArray = stream.toByteArray()
+            btnDetail.setOnClickListener {
+                val intent = Intent(this, PlantDetailActivity::class.java)
+                intent.putExtra("KEY",plantname)
+                intent.putExtra("IMG",byteArray)
+                startActivity(intent)
+            }
+        }
+
         view.findViewById<TextView>(R.id.tv_result).text = plantname
         view.findViewById<TextView>(R.id.tv_confidence).text =
             String.format("%.1f%%", confidence* 100 )
 
-        view.findViewById<ImageView>(R.id.imageView).setImageBitmap(image)
+        view.findViewById<ImageView>(R.id.iv_result).setImageBitmap(image)
 
         view.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
             dialog.dismiss()
@@ -114,11 +131,10 @@ class CameraActivity : AppCompatActivity() {
                 }
             }
             val classes = arrayOf("alang-alang", "begonia", "buah-merbei", "cantigi-gunung", "ciplukan", "daun-senggani", "honje", "lumut-hati", "paku-sayur", "pohpohan", "rane", "semanggi")
-            result!!.text = classes[maxPos]
-            confidence!!.text = String.format("%.1f%%", maxConfidence*100)
+//            result!!.text = classes[maxPos]
+//            confidence!!.text = String.format("%.1f%%", maxConfidence*100)
 
             succesDialog(classes[maxPos], maxConfidence, image)
-
             // Releases model resources if no longer used.
             model.close()
         } catch (e: IOException) {
@@ -126,13 +142,14 @@ class CameraActivity : AppCompatActivity() {
         }
     }
 
-    protected override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 3) {
                 var image = data?.getExtras()?.get("data") as Bitmap
                 val dimension = Math.min(image.width, image.height)
                 image = ThumbnailUtils.extractThumbnail(image, dimension, dimension)
-                imageView!!.setImageBitmap(image)
+//                imageView!!.setImageBitmap(image)
                 image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
                 classifyImage(image)
             } else {
@@ -143,11 +160,10 @@ class CameraActivity : AppCompatActivity() {
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
-                imageView!!.setImageBitmap(image)
+//                imageView?.setImageBitmap(image)
                 image = Bitmap.createScaledBitmap(image!!, imageSize, imageSize, false)
                 classifyImage(image)
             }
         }
-        super.onActivityResult(requestCode, resultCode, data)
     }
 }

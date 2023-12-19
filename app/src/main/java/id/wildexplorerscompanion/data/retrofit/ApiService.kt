@@ -7,6 +7,7 @@ import id.wildexplorerscompanion.data.retrofit.response.RegisterResponse
 import retrofit2.http.DELETE
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.HTTP
 import retrofit2.http.Header
 import retrofit2.http.HeaderMap
 import retrofit2.http.PATCH
@@ -27,9 +28,8 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String,
     ): LoginResponse
-
     @FormUrlEncoded
-    @DELETE("users/delete")
+    @HTTP(method = "DELETE", path = "users/delete", hasBody = true)
     suspend fun delete(
         @Header("X-Auth-Token")token: String,
         @Field("email") email: String,

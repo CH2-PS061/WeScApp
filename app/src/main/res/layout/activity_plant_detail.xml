@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="170dp"
         android:layout_gravity="center"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_camera_retro"
         android:layout_marginTop="25dp"
         android:layout_marginStart="30dp"

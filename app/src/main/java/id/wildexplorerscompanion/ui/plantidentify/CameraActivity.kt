@@ -60,14 +60,12 @@ class CameraActivity : AppCompatActivity() {
         val view = layoutInflater.inflate(R.layout.dialog_scan_result, null)
         val builder = AlertDialog.Builder(this@CameraActivity)
         builder.setView(view)
-
         val dialog = builder.create()
         dialog.show()
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-
+        val btnDetail = view.findViewById<Button>(R.id.btn_detail)
         if (confidence >= 0.9 ){
             view.findViewById<LinearLayout>(R.id.layout_warning).visibility = View.GONE
-            val btnDetail = view.findViewById<Button>(R.id.btn_detail)
             val bitmap: Bitmap = image
             val stream = ByteArrayOutputStream()
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
@@ -78,14 +76,14 @@ class CameraActivity : AppCompatActivity() {
                 intent.putExtra("IMG",byteArray)
                 startActivity(intent)
             }
+        } else {
+            btnDetail.visibility = View.GONE
         }
 
         view.findViewById<TextView>(R.id.tv_result).text = plantname
         view.findViewById<TextView>(R.id.tv_confidence).text =
             String.format("%.1f%%", confidence* 100 )
-
         view.findViewById<ImageView>(R.id.iv_result).setImageBitmap(image)
-
         view.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
             dialog.dismiss()
             val intentToHome = Intent(this@CameraActivity, HomeActivity::class.java)

@@ -17,14 +17,9 @@ class SurvivalGuideActivity : AppCompatActivity() {
         survivalGuideBinding = ActivitySurvivalGuideBinding.inflate(layoutInflater)
         setContentView(survivalGuideBinding.root)
         supportActionBar?.title = getString(R.string.survival_guide)
-        
-        survivalGuideBinding.layoutSurvivalMarkdown.apply { 
-            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
-            setContent { 
-                MaterialTheme{
-                    MarkDown(url = URL("https://raw.githubusercontent.com/CH2-PS061/markdown/main/Survival%20Guide/Cari%20dan%20Membersihkan%20Air.md"))
-                }
-            }
-        }
+
+        survivalGuideBinding.webView.settings.javaScriptEnabled= true
+        survivalGuideBinding.webView.setBackgroundColor(resources.getColor(R.color.hintgreen))
+        survivalGuideBinding.webView.loadUrl("file:///android_asset/SurvivalGuide.html")
     }
 }

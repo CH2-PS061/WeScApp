@@ -3,7 +3,26 @@
     <style name="Base.Theme.WildExplorersCompanion" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/applegreen</item>
+        <item name="android:colorBackground">@color/hintgreen</item>
+
+<!--        For Disable Android 12 splashsceen-->
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
-    <style name="Theme.WildExplorersCompanion" parent="Base.Theme.WildExplorersCompanion" />
+    <style name="ThemeActionBar" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/applegreen</item>
+        <item name="colorPrimaryVariant">@color/applegreen</item>
+        <item name="colorSurface">@color/applegreen</item>
+        <item name="android:colorBackground">@color/hintgreen</item>
+
+        <item name="titleTextColor">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="actionBarTheme">@color/white</item>
+
+    </style>
+
+    <style name="Theme.WildExplorersCompanion" parent="Base.Theme.WildExplorersCompanion" />u
+
 </resources>

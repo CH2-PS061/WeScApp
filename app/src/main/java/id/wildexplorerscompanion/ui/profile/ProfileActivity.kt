@@ -35,9 +35,9 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         profileBinding.btnLogout.setOnClickListener {
-            profileViewModel.logout()
             startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
             finish()
+            profileViewModel.logout()
         }
 
         profileBinding.btnDeleteAccount.setOnClickListener {

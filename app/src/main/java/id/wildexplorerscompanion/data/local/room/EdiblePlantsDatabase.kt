@@ -22,7 +22,7 @@ abstract class EdiblePlantsDatabase : RoomDatabase() {
                         context.applicationContext,
                         EdiblePlantsDatabase::class.java,
                         "edibleplant_db")
-                        .createFromAsset("EdiablePlant.db")
+                        .createFromAsset("database/EdiablePlant.db")
                         .build()
                 }
             }

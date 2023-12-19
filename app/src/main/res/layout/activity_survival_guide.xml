@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.survivalguide.SurvivalGuideActivity">
 
-    <androidx.compose.ui.platform.ComposeView
-        android:id="@+id/layout_survival_markdown"
+    <WebView
+        android:id="@+id/web_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

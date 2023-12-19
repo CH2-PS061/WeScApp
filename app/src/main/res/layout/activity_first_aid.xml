@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.firstaid.FirstAidActivity">
 
-    <androidx.compose.ui.platform.ComposeView
-        android:id="@+id/layout_first_aid_markdown"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <WebView
+    android:id="@+id/web_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

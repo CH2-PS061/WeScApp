@@ -11,10 +11,12 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import id.wildexplorerscompanion.R
 import id.wildexplorerscompanion.databinding.ActivityHomeBinding
 import id.wildexplorerscompanion.ui.ViewModelFactory
+import id.wildexplorerscompanion.ui.firstaid.FirstAidActivity
 import id.wildexplorerscompanion.ui.login.LoginActivity
 import id.wildexplorerscompanion.ui.plantdetail.PlantDetailActivity
 import id.wildexplorerscompanion.ui.profile.ProfileActivity
 import id.wildexplorerscompanion.ui.plantidentify.CameraActivity
+import id.wildexplorerscompanion.ui.survivalguide.SurvivalGuideActivity
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -45,11 +47,11 @@ class HomeActivity : AppCompatActivity() {
         }
 
         binding.layoutFirstAid.setOnClickListener {
-//            startActivity(Intent(this,))
+            startActivity(Intent(this,FirstAidActivity::class.java))
         }
 
         binding.layoutSurvival.setOnClickListener {
-
+            startActivity(Intent(this,SurvivalGuideActivity::class.java))
         }
         binding.btnSos.setOnClickListener {
             val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:115"))

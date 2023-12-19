@@ -11,7 +11,7 @@
         android:layout_width="105dp"
         android:layout_height="125dp"
         android:layout_gravity="center"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="50dp"
         android:background="@drawable/square_button_background"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,13 +43,11 @@
         android:id="@+id/btn_kamera"
         android:layout_width="110dp"
         android:layout_height="125dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/square_button_background"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@id/btn_gallery"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_gallery"
         app:layout_constraintTop_toTopOf="@+id/btn_gallery">
 
         <ImageView
